@@ -1,0 +1,18 @@
+{
+  "name": "boilerplate-react-redux",
+  "version": "1.0.0",
+  "description": "Boilerplate code for a React-Redux app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvjones/boilerplate-react-redux.git"
+  },
+  "author": "Paul Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pvjones/boilerplate-react-redux/issues"
+  },
+  "homepage": "https://github.com/pvjones/boilerplate-react-redux#readme"
+}
