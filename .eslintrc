@@ -1,8 +1,5 @@
 {
   "parser": "babel-eslint",
-  "ecmaFeatures": {
-    "jsx": true
-  },
   "extends": "eslint-config-airbnb",
   "env": {
     "browser": true,
@@ -15,9 +12,16 @@
     "max-len": [
       "warn",
       {
-        "code": 140,
+        "code": 170,
         "ignoreStrings": true,
         "ignoreUrls": true
+      }
+    ],
+    "prefer-destructuring": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
       }
     ],
     "jsx-a11y/href-no-hash": "off",
@@ -26,28 +30,18 @@
     "react/react-in-jsx-scope": "warn",
     "react/jsx-first-prop-new-line": "off",
     "react/no-array-index-key": "warn",
-    "react/forbid-prop-types": [
-      "off"
-    ],
     "react/prop-types": "off",
+    "jsx-quotes": "off",
+    "function-paren-newline": "off",
     "indent": [
       "off",
       2
     ],
     "linebreak-style": "off",
-    "no-var": "off",
-    "jsx-quotes": "off",
-    "quotes": "off",
     "no-use-before-define": "off",
     "padded-blocks": "off",
     "semi": "off",
     "comma-dangle": 1,
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
-    ],
     "arrow-parens": [
       "error",
       "as-needed"

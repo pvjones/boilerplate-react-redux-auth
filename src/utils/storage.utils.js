@@ -9,13 +9,13 @@ const serializeState = (storageType, state, storageLocation, dataPath) => {
   return state
 }
 
-export const serializeStateToSessionStorage = (state, storageLocation, dataPath) => (
+export const serializeStateToSessionStorage = (state, storageLocation, dataPath) =>
   serializeState(sessionStorage, state, storageLocation, dataPath)
-)
 
-export const serializeStateToLocalStorage = (state, storageLocation, dataPath) => (
+
+export const serializeStateToLocalStorage = (state, storageLocation, dataPath) =>
   serializeState(localStorage, state, storageLocation, dataPath)
-)
+
 
 const deserializeState = (storageType, state, storageLocation, dataPath) => {
   try {

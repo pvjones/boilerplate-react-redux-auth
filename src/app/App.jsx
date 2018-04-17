@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Route } from 'react-router-dom'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory' // eslint-disable eslint-disable-no-extraneous-dependencies
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'

@@ -18,7 +18,7 @@ module.exports = env => ({
       path.resolve(__dirname, '..'),
       'node_modules',
     ],
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
 
   module: {
@@ -32,13 +32,12 @@ module.exports = env => ({
         },
       },
       {
-        test: /\.(jpe?g|png|svg|gif|ico|ttf|woff|woff2|eot)$/,
+        test: /\.(jpe?g|png|svg|gif|ico|ttf|woff2?|eot)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[hash].[ext]',
-              outputPath: 'assets/',
             },
           },
         ],
@@ -69,4 +68,5 @@ module.exports = env => ({
       chunksSortMode: 'dependency',
     }),
   ]
+
 })

@@ -1,6 +1,6 @@
-var webpack = require('webpack')
-var webpackMerge = require('webpack-merge')
-var commonConfig = require('./webpack.common.js')('dev')
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const commonConfig = require('./webpack.common.js')('dev')
 
 module.exports = webpackMerge(commonConfig, {
 
@@ -20,10 +20,6 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    // new ExtractTextPlugin({
-    //   filename: '[name].css',
-    //   allChunks: true,
-    // }),
     new webpack.DefinePlugin({
       'process.env': {
         ENV: JSON.stringify('dev'),

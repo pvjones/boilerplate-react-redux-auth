@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable'
+import { Map } from 'immutable'
 import { serializeStateToLocalStorage, deserializeStateFromLocalStorage } from '../../../utils/storage.utils'
 import actionDefs from '../actions/actionDefs'
 
@@ -20,7 +20,7 @@ const reducer = (state = deserializeSession(), action) => {
 
 export default reducer
 
-const serializeSession = (state) =>
+const serializeSession = state =>
   serializeStateToLocalStorage(state, 'userSession', ['session'])
 
 const deserializeSession = () =>
