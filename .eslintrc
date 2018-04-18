@@ -41,13 +41,17 @@
     "no-use-before-define": "off",
     "padded-blocks": "off",
     "semi": "off",
-    "comma-dangle": 1,
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ],
     "arrow-parens": [
       "error",
       "as-needed"
     ],
     "import/no-extraneous-dependencies": "warn",
     "import/first": "off",
+    "import/prefer-default-export": "off",
     "no-unneeded-ternary": "warn",
     "arrow-body-style": [
       "warn",

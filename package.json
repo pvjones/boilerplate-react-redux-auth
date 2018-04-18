@@ -18,6 +18,7 @@
   "homepage": "https://github.com/pvjones/boilerplate-react-redux#readme",
   "dependencies": {
     "immutable": "^3.8.2",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",

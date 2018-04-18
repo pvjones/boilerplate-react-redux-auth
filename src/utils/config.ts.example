@@ -1,0 +1,22 @@
+const config = {
+
+  dev: {
+    api: {
+      baseUrl: 'api',
+      port: 3000,
+    }
+  },
+
+  prod: {
+    api: {
+      baseUrl: 'api',
+      port: 3000,
+    }
+  }
+
+}
+
+export default env => {
+  const envType = env || process.env.ENV || 'dev'
+  return config[envType]
+}
