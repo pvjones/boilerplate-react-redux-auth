@@ -25,9 +25,7 @@ const blockURL = (method, url) => {
   blockedMap = blockedMap.setIn([method, url], count + 1)
 }
 
-const isURLBlocked = (method, url) => {
-  return blockedMap.getIn([method, url], 0) >= blockedCallLimit
-}
+const isURLBlocked = (method, url) => blockedMap.getIn([method, url], 0) >= blockedCallLimit
 
 const processResponse = (response, method, url, dispatch) => {
   if (response.ok) {
@@ -47,36 +45,30 @@ const processResponse = (response, method, url, dispatch) => {
     })
 }
 
-const getEmptyPromise = () => {
-  return new Promise(() => {
-    // Need to return an empty promise so that only the first promise can be resolved.
-    // Otherwise multiple unnecessary rerenders will result.
-  })
-}
+const getEmptyPromise = () => new Promise(() => {
+  // Need to return an empty promise so that only the first promise can be resolved.
+  // Otherwise multiple unnecessary rerenders will result.
+})
 
-const getFetchPromise = (method, url, payload, dispatch) => {
-  return new Promise(resolve => {
-    fetch(`${apiUrl}${url}`, payload)
-      .then(response => resolve(processResponse(response, method, url, dispatch)))
-      .catch(error => dispatch(setAlertError(error.message)))
-  })
-}
+const getFetchPromise = (method, url, payload, dispatch) => new Promise(resolve => {
+  fetch(`${apiUrl}${url}`, payload)
+    .then(response => resolve(processResponse(response, method, url, dispatch)))
+    .catch(error => dispatch(setAlertError(error.message)))
+})
 
-const getThrottledFetchPromise = (method, url, payload, dispatch) => {
-  return new Promise(resolve => {
-    fetch(`${apiUrl}${url}`, payload)
-      .then(response => {
-        setTimeout(() => {
-          requestMap = requestMap.deleteIn([method, url])
-        }, throttledRequestTimeLimit)
-        return resolve(processResponse(response, method, url, dispatch))
-      })
-      .catch(error => {
-        dispatch(setAlertError(error.message))
+const getThrottledFetchPromise = (method, url, payload, dispatch) => new Promise(resolve => {
+  fetch(`${apiUrl}${url}`, payload)
+    .then(response => {
+      setTimeout(() => {
         requestMap = requestMap.deleteIn([method, url])
-      })
-  })
-}
+      }, throttledRequestTimeLimit)
+      return resolve(processResponse(response, method, url, dispatch))
+    })
+    .catch(error => {
+      dispatch(setAlertError(error.message))
+      requestMap = requestMap.deleteIn([method, url])
+    })
+})
 
 const getHeaders = (authToken, extraHeaders = {}) => {
   const authHeader = authToken ? { Authorization: authToken } : {}

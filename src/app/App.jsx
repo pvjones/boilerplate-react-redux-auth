@@ -6,7 +6,7 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { composeStore } from './store/store'
-import Main from './components/Main'
+import PrimaryRoute from './components/PrimaryRoute'
 
 injectTapEventPlugin()
 
@@ -27,4 +27,4 @@ const render = Component => {
   )
 }
 
-render(Main)
+render(PrimaryRoute)

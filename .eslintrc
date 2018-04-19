@@ -25,6 +25,8 @@
       }
     ],
     "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
     "react/react-in-jsx-scope": "warn",
@@ -33,6 +35,7 @@
     "react/prop-types": "off",
     "jsx-quotes": "off",
     "function-paren-newline": "off",
+    "object-curly-newline": "off",
     "indent": [
       "off",
       2

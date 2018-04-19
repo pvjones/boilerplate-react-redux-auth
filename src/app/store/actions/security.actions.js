@@ -11,27 +11,44 @@ export const clearSession = () => ({
   type: actionDefs.Security.Session.Remove,
 })
 
-export const signIn = creds =>
+export const signIn = (email, password) =>
   dispatch => {
-    const login = {
-      email: creds.get('username'),
-      password: creds.get('password'),
+    const body = {
+      email,
+      password,
     }
 
-    return dispatch(fetch.post('/login', null, login))
-      .then(session => dispatch(setSession(session)))
-      .catch(error => { throw error })
+    return dispatch(fetch.post('/auth/login', body))
+      .then(session => {
+        dispatch(setSession(session))
+      })
+      .catch(error => {
+        throw error
+      })
   }
 
 export const signOut = () =>
   dispatch =>
-    dispatch(fetch.post('/logoff'))
+    dispatch(fetch.post('/auth/logoff'))
       .then(() => {
         dispatch(clearSession())
       })
       .catch(error => {
         dispatch(setAlertError(error.message))
       })
+
+export const registerUser = (email, firstName, lastName, password) =>
+  dispatch => {
+    const body = {
+      email,
+      firstName,
+      lastName,
+      password,
+    }
+    dispatch(fetch.post('/auth/register', body))
+      .then(response => { console.log('response', response) })
+      .catch(error => { console.log('error', error) })
+  }
 
 
 export const setUserDetails = user => ({

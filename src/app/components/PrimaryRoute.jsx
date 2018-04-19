@@ -1,15 +1,20 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
 import AuthenticatedRoute from './Route/AuthenticatedRoute'
+import Login from './Views/Login'
+import Register from './Views/Register'
 
-
-const Main = () => (
+const PrimaryRoute = () => (
   <Switch>
     <AuthenticatedRoute
       path='/login'
-      render={() => (
-        <div>Login</div>
-      )}
+      render={() => <Login />}
+      redirectPath='/'
+      ifNotAuthenticated
+    />
+    <AuthenticatedRoute
+      path='/register'
+      render={() => <Register />}
       redirectPath='/'
       ifNotAuthenticated
     />
@@ -22,4 +27,4 @@ const Main = () => (
   </Switch>
 )
 
-export default Main
+export default PrimaryRoute
