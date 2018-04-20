@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom'
 import AuthenticatedRoute from './Route/AuthenticatedRoute'
 import Login from './Views/Login'
 import Register from './Views/Register'
+import Home from './Views/Home'
 
 const PrimaryRoute = () => (
   <Switch>
@@ -20,9 +21,7 @@ const PrimaryRoute = () => (
     />
     <AuthenticatedRoute
       path='/'
-      render={() => (
-        <div>Hello World</div>
-      )}
+      render={() => <Home />}
     />
   </Switch>
 )

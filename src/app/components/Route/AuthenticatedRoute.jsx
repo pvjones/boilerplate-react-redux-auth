@@ -23,7 +23,8 @@ const AuthenticatedRoute = ({
 
   const getRenderFunc = () => {
     const shouldRedirect = redirectIfAuthenticated ? isAuthenticated : !isAuthenticated
-
+    console.log('isAuthenticated', isAuthenticated)
+    console.log('shouldRedirect', shouldRedirect)
     if (shouldRedirect) {
       return () => redirect(location.pathname)
     }

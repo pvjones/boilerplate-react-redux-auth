@@ -8,7 +8,7 @@ export const setSession = session => ({
 })
 
 export const clearSession = () => ({
-  type: actionDefs.Security.Session.Remove,
+  type: actionDefs.Security.Session.Clear,
 })
 
 export const signIn = (email, password) =>
@@ -26,11 +26,13 @@ export const signIn = (email, password) =>
 
 export const signOut = () =>
   dispatch =>
-    dispatch(fetch.post('/auth/logoff'))
+    dispatch(fetch.post('/auth/logout'))
       .then(() => {
+        console.log('shouldLogoff')
         dispatch(clearSession())
       })
       .catch(error => {
+        console.log('logoffError')
         dispatch(setAlertError(error.message))
       })
 
