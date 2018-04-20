@@ -27,14 +27,8 @@ export const signIn = (email, password) =>
 export const signOut = () =>
   dispatch =>
     dispatch(fetch.post('/auth/logout'))
-      .then(() => {
-        console.log('shouldLogoff')
-        dispatch(clearSession())
-      })
-      .catch(error => {
-        console.log('logoffError')
-        dispatch(setAlertError(error.message))
-      })
+      .then(() => dispatch(clearSession()))
+      .catch(error => dispatch(setAlertError(error.message)))
 
 export const registerUser = (email, firstName, lastName, password) =>
   dispatch => {
@@ -45,8 +39,8 @@ export const registerUser = (email, firstName, lastName, password) =>
       password,
     }
     dispatch(fetch.post('/auth/register', body))
-      .then(response => { console.log('response', response) })
-      .catch(error => { console.log('error', error) })
+      .then(() => 'success')
+      .catch(() => 'error')
   }
 
 
