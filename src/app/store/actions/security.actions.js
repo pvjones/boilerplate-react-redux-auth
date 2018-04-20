@@ -13,10 +13,7 @@ export const clearSession = () => ({
 
 export const signIn = (email, password) =>
   dispatch => {
-    const body = {
-      email,
-      password,
-    }
+    const body = { email, password }
 
     return dispatch(fetch.post('/auth/login', body))
       .then(session => {

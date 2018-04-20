@@ -4,12 +4,12 @@ import { SecurityPaths } from '../reducers/paths'
 
 export const selectSessionToken = store => {
   const path = SecurityPaths.session.token.get()
-  store.security.getIn(path, '')
+  return store.security.getIn(path, '')
 }
 
 export const selectIsUserAuthenticated = store => {
-  const key = selectSessionToken(store)
-  return key !== ''
+  const token = selectSessionToken(store)
+  return token !== ''
 }
 
 export const selectUserId = store => {

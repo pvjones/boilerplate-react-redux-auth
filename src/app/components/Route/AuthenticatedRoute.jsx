@@ -4,13 +4,13 @@ import { selectIsUserAuthenticated } from '../../store/selectors/security.select
 import { Route, Redirect, withRouter } from 'react-router-dom'
 
 const AuthenticatedRoute = ({
-  ifNotAuthenticated,
+  redirectIfAuthenticated,
   isAuthenticated,
   component,
   render,
   redirectPath = '/login',
   location,
-  ...other,
+  ...other
 }) => {
   const redirect = from => (
     <Redirect
@@ -22,7 +22,9 @@ const AuthenticatedRoute = ({
   )
 
   const getRenderFunc = () => {
-    if (ifNotAuthenticated ? !isAuthenticated : isAuthenticated) {
+    const shouldRedirect = redirectIfAuthenticated ? isAuthenticated : !isAuthenticated
+
+    if (shouldRedirect) {
       return () => redirect(location.pathname)
     }
     if (component) {

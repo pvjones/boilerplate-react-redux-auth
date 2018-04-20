@@ -1,9 +1,9 @@
-import { Map } from 'immutable'
+import { fromJS, Map } from 'immutable'
 import { serializeStateToLocalStorage, deserializeStateFromLocalStorage } from '../../../utils/storage.utils'
 import actionDefs from '../actions/actionDefs'
 
 const setSession = (state, payload) =>
-  state.merge({ session: payload })
+  state.merge(fromJS({ session: payload }))
 
 const reducer = (state = deserializeSession(), action) => {
   switch (action.type) {

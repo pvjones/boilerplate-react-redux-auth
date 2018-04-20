@@ -71,7 +71,7 @@ const getThrottledFetchPromise = (method, url, payload, dispatch) => new Promise
 })
 
 const getHeaders = (authToken, extraHeaders = {}) => {
-  const authHeader = authToken ? { Authorization: authToken } : {}
+  const authHeader = authToken ? { authorization: authToken } : {}
 
   const init = {
     ...standardHeaders,

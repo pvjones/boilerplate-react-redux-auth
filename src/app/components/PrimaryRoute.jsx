@@ -10,13 +10,13 @@ const PrimaryRoute = () => (
       path='/login'
       render={() => <Login />}
       redirectPath='/'
-      ifNotAuthenticated
+      redirectIfAuthenticated
     />
     <AuthenticatedRoute
       path='/register'
       render={() => <Register />}
       redirectPath='/'
-      ifNotAuthenticated
+      redirectIfAuthenticated
     />
     <AuthenticatedRoute
       path='/'
