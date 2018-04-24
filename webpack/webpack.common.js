@@ -52,9 +52,9 @@ module.exports = env => ({
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   plugins: [
@@ -67,6 +67,6 @@ module.exports = env => ({
       baseUrl: baseHref,
       chunksSortMode: 'dependency',
     }),
-  ]
+  ],
 
 })
